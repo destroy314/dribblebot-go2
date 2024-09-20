@@ -5,7 +5,8 @@ def train_go1(headless=True):
     import torch
 
     from dribblebot.envs.base.legged_robot_config import Cfg
-    from dribblebot.envs.go1.go1_config import config_go1
+    # from dribblebot.envs.go1.go1_config import config_go1
+    from dribblebot.envs.go1.go2_config import config_go2 as config_go1
     from dribblebot.envs.go1.velocity_tracking import VelocityTrackingEasyEnv
 
     from dribblebot_learn.ppo_cse import Runner
@@ -15,14 +16,13 @@ def train_go1(headless=True):
     from dribblebot_learn.ppo_cse import RunnerArgs
 
     config_go1(Cfg)
-    Cfg.env.num_envs = 1000
 
-    RunnerArgs.resume = True
-    RunnerArgs.resume_path = "improbableailab/dribbling/j34kr9ds"
-    RunnerArgs.resume_checkpoint = 'tmp/legged_data/ac_weights_last.pt' 
+    # RunnerArgs.resume = True
+    # RunnerArgs.resume_path = "improbableailab/dribbling/j34kr9ds"
+    # RunnerArgs.resume_checkpoint = 'tmp/legged_data/ac_weights_last.pt' 
 
 
-    Cfg.robot.name = "go1"
+    Cfg.robot.name = "go2"
     Cfg.sensors.sensor_names = [
                         "ObjectSensor",
                         "OrientationSensor",
@@ -285,7 +285,7 @@ def train_go1(headless=True):
 
     device = 'cuda:0'
     # device = 'cpu'
-    env = VelocityTrackingEasyEnv(sim_device=device, headless=False, cfg=Cfg)
+    env = VelocityTrackingEasyEnv(sim_device=device, headless=headless, cfg=Cfg)
 
     env = HistoryWrapper(env)
     runner = Runner(env, device=device)
@@ -299,5 +299,5 @@ if __name__ == '__main__':
     stem = Path(__file__).stem
     
     # to see the environment rendering, set headless=False
-    train_go1(headless=False)
+    train_go1(headless=True)
 

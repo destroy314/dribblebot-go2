@@ -7,6 +7,8 @@ import torch
 # from ml_logger import logger
 import wandb
 from wandb_osh.hooks import TriggerWandbSyncHook
+import wandb_osh
+wandb_osh.set_log_level("ERROR")
 
 from params_proto import PrefixProto
 

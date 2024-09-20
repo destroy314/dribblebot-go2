@@ -81,6 +81,13 @@ pip3 install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu
 
 In this repository, run `pip install -e .`
 
+If you encounter an error about `opencv-python>=3.`, try running the following commands before the installation:
+
+```bash
+pip install "pip<24.1"
+pip install "wheel==0.38.4"
+```
+
 ### Evaluate the pre-trained policy
 
 If everything is installed correctly, you should be able to run the evaluation script with:

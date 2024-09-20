@@ -1336,9 +1336,11 @@ class LeggedRobot(BaseTask):
 
         # create robot
         from dribblebot.robots.go1 import Go1
+        from dribblebot.robots.go2 import Go2
 
         robot_classes = {
             'go1': Go1,
+            'go2': Go2,
         }
 
         self.robot = robot_classes[self.cfg.robot.name](self)

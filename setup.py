@@ -17,7 +17,8 @@ setup(
                       'numpy==1.23.5',
                       'wandb==0.15.0',
                       'wandb_osh',
-                      #'moviepy',
+                      'ml_logger',
+                      'moviepy',
                       'imageio'
                       ]
 )
