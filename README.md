@@ -1,3 +1,6 @@
+> [!Important]
+> This code has bugs for go2 training. Use https://github.com/xander-2077/dribblebot instead.
+
 # Go1 Soccer (Dribblebot) Starter Kit
 
 # Table of contents
